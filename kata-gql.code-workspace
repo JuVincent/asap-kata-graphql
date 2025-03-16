@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "path": "./front",
+      "name": "Front"
+    },
+    {
+      "path": "./api",
+      "name": "API"
+    },
+    {
+      "path": ".",
+      "name": "root"
+    }
+  ]
+}
