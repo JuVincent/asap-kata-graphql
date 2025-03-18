@@ -19,6 +19,7 @@ const GET_MENU = gql`
 // Fonction fetchMenu qui renvoie une promesse avec les résultats
 export const fetchMenu = async (filter: MealFilter): Promise<Meal[]> => {
   try {
+
     const { data } = await client.query({
       query: GET_MENU,
       variables: filter, // Passe le filtre comme variables

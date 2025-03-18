@@ -1,7 +1,10 @@
 import express from 'express';
 import { setupGraphQL } from './presentation/gql/server';
-import cors from 'cors'; // I
+import cors from 'cors';
+
 const app = express();
+
+
 app.use(cors());
 await setupGraphQL(app);
 

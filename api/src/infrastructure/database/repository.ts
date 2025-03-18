@@ -1,4 +1,5 @@
 import { Meal, mealFilter, OrderInput, Order } from "../../domain/meal";
+import { logger } from "../../logger";
 import { meals } from "./data";
 import { DbMeal } from "./model";
 
@@ -10,19 +11,16 @@ export class RestaurantRepository {
         if(!filter)
             return result; 
         
-        if (filter.category) {
+        if (filter.category) 
             result = meals.filter(meal => meal.category === filter.category)
-        }
-
-        if(filter.minPrice) {
+        
+        if(filter.minPrice) 
             result = result.filter(meal => meal.price >= filter.minPrice)
-        }
-
-        if(filter.maxPrice) {
+        
+        if(filter.maxPrice) 
             result = result.filter(meal => meal.price <= filter.minPrice)
-        }
 
-        return meals.map<Meal>((dbMeal) => ({...dbMeal}))
+        return result
     }
 
     createOrder(input: OrderInput): Order {
