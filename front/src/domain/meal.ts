@@ -19,8 +19,7 @@ export type MeadlOrder = {
 };
 export class Order 
 {
-  id: string;
-  name: string;
+  id: String;
   meals: MeadlOrder[];
   status: OrderStatus;
 
@@ -29,7 +28,7 @@ export class Order
     this.status = OrderStatus.Pending;
   }
 
-  get price(): number {
+  get price(): Number {
     return this.meals.reduce((total, item) => total + item.meal.price * item.quantity, 0);
   }
 };
@@ -41,10 +40,10 @@ export enum OrderStatus  {
 };
 
 export type OrderInput = {
-  name: string;
+  name: String;
   meals: {
-    mealId: number;
-    quantity: number;
+    mealId: Number;
+    quantity: Number;
   }[];
 };
 

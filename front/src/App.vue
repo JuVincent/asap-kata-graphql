@@ -1,20 +1,25 @@
 <script setup lang="ts">
 import MenuWithFilters from './components/MenuWithFilters.vue';
-import Menu from './components/MenuWithFilters.vue'
+import Menu from './components/Menu.vue'
+import PassOrder from './components/PassOrder.vue';
 </script>
 
 <template>
-  <div class="app">
-    <div class="header">
-      <h1>Julien VINCENT le restaurant, un rêve devenu réalité</h1>
-    </div>
-    <div class="content">
-      <Suspense>
-        <MenuWithFilters />
-      </Suspense>
+  <Suspense>
+    <div class="app">
+      <div class="header">
+        <h1>Julien VINCENT le restaurant, un rêve devenu réalité</h1>
+      </div>
+      <div class="content">
 
+        <MenuWithFilters />
+
+
+        <PassOrder />
+
+      </div>
     </div>
-  </div>
+  </Suspense>
 </template>
 
 <style scoped>
@@ -33,5 +38,6 @@ import Menu from './components/MenuWithFilters.vue'
   flex: 1;
   background-color: tomato;
   display: flex;
+  flex-direction: row;
 }
 </style>

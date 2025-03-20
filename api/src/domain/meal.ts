@@ -20,7 +20,6 @@ export type MeadlOrder = {
 export class Order 
 {
   id: string;
-  name: string;
   meals: MeadlOrder[];
   status: OrderStatus;
 

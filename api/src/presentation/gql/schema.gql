@@ -16,3 +16,7 @@ input MealFilter {
 type Query {
   menu(filter: MealFilter): [Meal]!
 }
+
+type Mutation {
+  validateOrder(order: OrderInput!): String!
+}

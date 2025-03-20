@@ -1,38 +1,24 @@
 <script lang="ts" setup>
-import { useQuery } from "@vue/apollo-composable";
-import gql from 'graphql-tag'
-// Définition de la query GraphQL
-const GET_MENU = gql`
-  query GetMenu {
-    menu {
-      id
-      name
-      price
-      description
-      ingredients
-    }
-  }
-`;
+import { fetchMenu } from "../api-v1";
 
-// Exécution de la requête GraphQL
-const { result } = useQuery(GET_MENU);
 
+const menu = await fetchMenu()
 
 </script>
 <template>
+  <div>
+    <h2>Le menu</h2>
     <div>
-        <h2>Le menu</h2>
-        <div v-if="result">
-            <ul>
-                <li v-for="meal in result?.menu" :key="meal.id">
-                    <h3>{{ meal.name }} - {{ meal.price }}$</h3>
-                    <p>{{ meal.description }}</p>
-                    <p>Ingrédients : {{ meal.ingredients.join(", ") }}</p>
-                </li>
-            </ul>
-        </div>
-        <div></div>
+      <ul>
+        <li v-for="meal in menu" :key="meal.id">
+          <h3>{{ meal.name }} - {{ meal.price }}$</h3>
+          <p>{{ meal.description }}</p>
+          <p>Ingrédients : {{ meal.ingredients.join(", ") }}</p>
+        </li>
+      </ul>
     </div>
+    <div></div>
+  </div>
 
 
 </template>
